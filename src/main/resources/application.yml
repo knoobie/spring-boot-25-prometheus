@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: demo-app
+
+management:
+  server:
+    port: 8484
+  endpoint:
+    health:
+      show-details: always
+      cache:
+        time-to-live: 30s
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    enable:
+      http.client.requests: false
+      http.server.requests: false
+    tags:
+      application: ${spring.application.name}
+      env: dev
